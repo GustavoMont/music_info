@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import db from "./database";
+import GeneroRoute from "./Routes/genero";
 
 const PORT = process.env.PORT || 8080;
 
@@ -17,6 +18,10 @@ app.use(express.urlencoded({ extended: false }));
     console.error("Unable to connect to the database:", error);
   }
 })();
+
+// Rotas ===========================
+
+app.use("/generos", GeneroRoute);
 
 app.listen(PORT, () => {
   console.log("Server is runing");
