@@ -9,7 +9,10 @@ const GeneroModel = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    nome: DataTypes.STRING,
+    nome: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
   },
   { createdAt: false, updatedAt: false, timestamps: false }
 );
