@@ -6,7 +6,7 @@ class ArtistaController {
   async getAll(req: Request, res: Response) {
     const artistas = await ArtistaModel.findAll({
       attributes: { exclude: ["genero_id"] },
-      include: [{ model: GeneroModel, attributes: ["nome"] }],
+      include: [{ model: GeneroModel }],
     });
     return res.status(200).json(artistas);
   }
@@ -51,7 +51,30 @@ class ArtistaController {
       res.json(400).json(error);
     }
   }
-  async template(req: Request, res: Response) {}
+  async update(req: Request, res: Response) {
+    const { id, ...info } = req.body;
+
+    try {
+      const updateArtista = await ArtistaModel.update(
+        { ...info },
+        { where: { id } }
+      );
+      if (updateArtista[0] !== 1) {
+        return res
+          .status(400)
+          .json({
+            erro: true,
+            message: "Houve um erro ao atualizar informações",
+          });
+      }
+      return res
+        .status(200)
+        .json({ message: "Informações atualizadas com Sucesso" });
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  }
+  // async template(req: Request, res: Response) {}
 }
 
 export default new ArtistaController();

@@ -7,6 +7,7 @@ ArtistaRoute.get("/", ArtistaController.getAll);
 ArtistaRoute.get("/:nome_genero", ArtistaController.getPerGenero);
 
 ArtistaRoute.post("/add", ArtistaController.insert);
+ArtistaRoute.put("/update", ArtistaController.update);
 
 // ArtistaRoute.put("/update", ArtistaController.update);
 
