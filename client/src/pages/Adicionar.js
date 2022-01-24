@@ -3,7 +3,7 @@ import '../styles/adicionar.css'
 
 function Adicionar() {
     const [generos, setGeneros] = useState([]);
-    const [formState, setFormState] = useState({ nome: '', image_url: '', maior_hit: '', genero_id: 0 });
+    const [formState, setFormState] = useState({ nome: '', image_url: '', maior_hit: '', nacionalidade: '', genero_id: 0 });
     useEffect(() => {
         (async () => {
             const reqGen = await fetch('/generos')
@@ -42,6 +42,11 @@ function Adicionar() {
                 <div className="mb-3">
                     <label htmlFor="nome" className="form-label">Nome do Artista: </label>
                     <input type="text" className="form-control" name="nome" id="nome" aria-describedby="text" value={formState.nome} onChange={handleForm} required />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="nacionalidade" className="form-label">Nacionalidade: </label>
+                    <input type="text" className="form-control" name="nacionalidade" id="nacionalidade"
+                        value={formState.nacionalidade} onChange={handleForm} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="image_url" className="form-label">Url de uma imagem: </label>

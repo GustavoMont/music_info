@@ -60,12 +60,10 @@ class ArtistaController {
         { where: { id } }
       );
       if (updateArtista[0] !== 1) {
-        return res
-          .status(400)
-          .json({
-            erro: true,
-            message: "Houve um erro ao atualizar informações",
-          });
+        return res.status(400).json({
+          erro: true,
+          message: "Houve um erro ao atualizar informações",
+        });
       }
       return res
         .status(200)
@@ -73,6 +71,17 @@ class ArtistaController {
     } catch (error) {
       return res.status(500).json(error);
     }
+  }
+  async delete(req: Request, res: Response) {
+    const { id } = req.body;
+    const del = await ArtistaModel.destroy({ where: { id } });
+    if (del === 0) {
+      res
+        .status(400)
+        .json({ erro: true, message: "Não foi possível deletar o artista" });
+      return;
+    }
+    res.status(200).json(del);
   }
   // async template(req: Request, res: Response) {}
 }
