@@ -11,3 +11,21 @@
 #home-body :is(h4, h2) {
     color: white;
 }
+
+.artist-pic {
+    content: '';
+    margin: 0 auto;
+    width: 100%;
+    height: 270px;
+    background-size: cover;
+}
+
+.card {
+    transform: scale(0.9);
+    transition: ease 1s all;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1);
+}
