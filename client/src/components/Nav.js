@@ -14,7 +14,7 @@ export default function Nav() {
                         <Link className="nav-link active" aria-current="page" to="/artistas">Ver artistas</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link active" to="/aidcionar">Adicionar Artistas</Link>
+                        <Link className="nav-link active" to="/adicionar">Adicionar Artistas</Link>
                     </li>
                 </ul>
             </div>

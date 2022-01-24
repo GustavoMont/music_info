@@ -96,8 +96,8 @@ export default function Artistas() {
                             }} />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="hit" className="form-label">Genero: </label>
-                            <select className="form-select" size="3" aria-label="size 3 select example" value={genEdit} onChange={({ target }) => {
+                            <label htmlFor="gen" className="form-label">Genero: </label>
+                            <select className="form-select" size="3" aria-label="size 3 select example" id='gen' value={genEdit} onChange={({ target }) => {
                                 setGenEdit(target.value)
                             }} >
                                 {generos.map(({ id, nome }) => {
